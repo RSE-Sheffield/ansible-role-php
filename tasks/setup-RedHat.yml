@@ -5,3 +5,9 @@
     state: "{{ php_packages_state }}"
     enablerepo: "{{ php_enablerepo | default(omit, true) }}"
   notify: restart webserver
+
+- name: Add and enable Remi PHP 7.3.x YUM repo
+  yum_repository:
+    name: remi-php73
+    description: Remi PHP 7.3.x YUM repo
+    enabled: yes
