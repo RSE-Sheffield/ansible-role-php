@@ -10,4 +10,5 @@
   yum_repository:
     name: "{{ php_enablerepo }}"
     baseurl: "{{ remi_repo_url }}"
+    gpgkey: "{{ remi_repo_gpg_key_url }}"
     enabled: yes
