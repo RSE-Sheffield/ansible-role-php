@@ -10,4 +10,5 @@
   yum_repository:
     name: remi-php73
     description: Remi PHP 7.3.x YUM repo
+    baseurl: "http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
     enabled: yes
