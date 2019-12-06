@@ -6,9 +6,8 @@
     enablerepo: "{{ php_enablerepo | default(omit, true) }}"
   notify: restart webserver
 
-- name: Add and enable Remi PHP 7.3.x YUM repo
+- name: Enable relevant repos so we get upgrades
   yum_repository:
-    name: remi-php73
-    description: Remi PHP 7.3.x YUM repo
-    baseurl: "https://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
+    name: "{{ item }}"
     enabled: yes
+  with_items: "{{ php_enablerepo.split(',') }}"
