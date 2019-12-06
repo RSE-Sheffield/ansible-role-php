@@ -12,4 +12,4 @@
     baseurl: "{{ remi_repo_url }}"
     gpgkey: "{{ remi_repo_gpg_key_url }}"
     enabled: yes
-  with_items: "{{ php_eenablerepo.split(',') }}"
+  with_items: "{{ php_enablerepo.split(',') }}"
