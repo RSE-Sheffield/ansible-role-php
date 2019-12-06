@@ -6,8 +6,10 @@
     enablerepo: "{{ php_enablerepo | default(omit, true) }}"
   notify: restart webserver
 
-- name: Enable relevant repos so we get upgrades
+- name: Enable PHP repo so we get upgrades
   yum_repository:
     name: "{{ item }}"
+    baseurl: "{{ remi_repo_url }}"
+    gpgkey: "{{ remi_repo_gpg_key_url }}"
     enabled: yes
-  with_items: "{{ php_enablerepo.split(',') }}"
+  with_items: "{{ php_eenablerepo.split(',') }}"
