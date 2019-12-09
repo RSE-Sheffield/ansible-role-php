@@ -8,6 +8,7 @@
 
 - name: Enable PHP repo so we get upgrades
   yum_repository:
+    description: Remi PHP repo 7.3.x 
     name: "{{ php_enablerepo }}"
     baseurl: "{{ remi_repo_url }}"
     gpgkey: "{{ remi_repo_gpg_key_url }}"
