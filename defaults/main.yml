@@ -1,7 +1,9 @@
 ---
-# Pass in a comma-separated list of repos to use (e.g. "remi,epel"). Used only
-# for RHEL/CentOS.
+# Pass in a comma-separated list of repos to use (e.g. "remi,epel"). 
 php_enablerepo: "remi-php73"
+remi_repo_url: "http://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
+remi_repo_gpg_key_url: "http://rpms.remirepo.net/RPM-GPG-KEY-remi"
+
 
 # PHP package state; use 'present' to make sure it's installed, or 'latest' if
 # you want to upgrade or switch versions using a new repo.
