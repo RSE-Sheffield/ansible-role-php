@@ -11,10 +11,6 @@
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
 
-# Install PHP from source when php_install_from_source is true.
-- include_tasks: install-from-source.yml
-  when: php_install_from_source
-
 # Configure PHP.
 - include_tasks: configure.yml
 - include_tasks: configure-apcu.yml
