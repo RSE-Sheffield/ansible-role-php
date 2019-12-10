@@ -8,6 +8,9 @@
     php_packages: "{{ php_packages | list + php_packages_extra | list }}"
   when: php_packages_extra is defined
 
+debug:
+  msg: PHP packages: {{ php_packages}}
+
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
 
