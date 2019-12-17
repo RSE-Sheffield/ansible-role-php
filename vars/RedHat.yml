@@ -16,7 +16,7 @@ php_packages:
   - php-xml
   - php-xmlrpc
 
-php_webserver_daemon: "httpd"
+php_webserver_daemon: "nginx"
 
 php_conf_paths:
   - /etc
