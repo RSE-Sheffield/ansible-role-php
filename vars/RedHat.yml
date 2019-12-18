@@ -1,5 +1,5 @@
 ---
-php_packages:
+__php_packages:
   - php
   - php-cli
   - php-common
@@ -16,19 +16,19 @@ php_packages:
   - php-xml
   - php-xmlrpc
 
-php_webserver_daemon: "nginx"
+__php_webserver_daemon: "httpd"
 
-php_conf_paths:
+__php_conf_paths:
   - /etc
 
-php_extension_conf_paths:
+__php_extension_conf_paths:
   - /etc/php.d
 
-php_apc_conf_filename: 50-apc.ini
-php_opcache_conf_filename: 10-opcache.ini
-php_fpm_daemon: php-fpm
-php_fpm_conf_path: "/etc/fpm"
-php_fpm_pool_conf_path: "/etc/php-fpm.d/www.conf"
+__php_apc_conf_filename: 50-apc.ini
+__php_opcache_conf_filename: 10-opcache.ini
+__php_fpm_daemon: php-fpm
+__php_fpm_conf_path: "/etc/fpm"
+__php_fpm_pool_conf_path: "/etc/php-fpm.d/www.conf"
 
 __php_fpm_pool_user: apache
 __php_fpm_pool_group: apache
