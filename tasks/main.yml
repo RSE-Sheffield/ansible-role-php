@@ -36,6 +36,16 @@ name: Define php_packages.
     php_apc_conf_filename: "{{ __php_apc_conf_filename }}"
   when: php_apc_conf_filename is not defined
 
+- name: Define php_opcache_conf_filename.
+  set_fact:
+    php_opcache_conf_filename: "{{ __php_opcache_conf_filename }}"
+  when: php_opcache_conf_filename is not defined
+
+- name: Define php_fpm_conf_path.
+  set_fact:
+    php_fpm_conf_path: "{{ __php_fpm_conf_path }}"
+  when: php_fpm_conf_path is not defined
+
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
 
