@@ -3,7 +3,7 @@
 - name: Include OS-specific variables.
   include_vars: "RedHat.yml"
 
-name: Define php_packages.
+- name: Define php_packages.
   set_fact:
     php_packages: "{{ __php_packages | list }}"
   when: php_packages is not defined
