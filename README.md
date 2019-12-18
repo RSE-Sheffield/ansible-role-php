@@ -1,7 +1,5 @@
 # Ansible Role: PHP
 
-<!-- [![Build Status](https://travis-ci.org/geerlingguy/ansible-role-php.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-php) -->
-
 Installs PHP on RedHat/CentOS servers.
 
 Customised (mostly simplification) from [ansible-role-php](https://github.com/geerlingguy/ansible-role-php) by [Jeff Geerling](https://www.jeffgeerling.com/).
