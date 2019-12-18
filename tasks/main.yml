@@ -3,6 +3,11 @@
 - name: Include OS-specific variables.
   include_vars: "RedHat.yml"
 
+name: Define php_packages.
+  set_fact:
+    php_packages: "{{ __php_packages | list }}"
+  when: php_packages is not defined
+
 - name: Define extra php_packages.
   set_fact:
     php_packages: "{{ php_packages | list + php_packages_extra | list }}"
@@ -10,6 +15,26 @@
 
 - debug:
     msg: PHP packages are {{ php_packages}}
+
+- name: Define php_webserver_daemon.
+  set_fact:
+    php_webserver_daemon: "{{ __php_webserver_daemon }}"
+  when: php_webserver_daemon is not defined
+
+- name: Define php_conf_paths.
+  set_fact:
+    php_conf_paths: "{{ __php_conf_paths }}"
+  when: php_conf_paths is not defined
+
+- name: Define php_extension_conf_paths.
+  set_fact:
+    php_extension_conf_paths: "{{ __php_extension_conf_paths }}"
+  when: php_extension_conf_paths is not defined
+
+- name: Define php_apc_conf_filename.
+  set_fact:
+    php_apc_conf_filename: "{{ __php_apc_conf_filename }}"
+  when: php_apc_conf_filename is not defined
 
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
