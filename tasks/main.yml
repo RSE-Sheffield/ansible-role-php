@@ -1,7 +1,7 @@
 ---
 # Variable setup.
 - name: Include OS-specific variables.
-  include_vars: "{{ ansible_os_family }}.yml"
+  include_vars: "RedHat.yml"
 
 - name: Define php_packages.
   set_fact:
@@ -12,6 +12,9 @@
   set_fact:
     php_packages: "{{ php_packages | list + php_packages_extra | list }}"
   when: php_packages_extra is defined
+
+- debug:
+    msg: PHP packages are {{ php_packages}}
 
 - name: Define php_webserver_daemon.
   set_fact:
@@ -33,11 +36,6 @@
     php_apc_conf_filename: "{{ __php_apc_conf_filename }}"
   when: php_apc_conf_filename is not defined
 
-- name: Define php_opcache_conf_filename (Ubuntu 16.04).
-  set_fact:
-    php_opcache_conf_filename: "10-opcache.ini"
-  when: php_opcache_conf_filename is not defined and ansible_distribution_version == "16.04"
-
 - name: Define php_opcache_conf_filename.
   set_fact:
     php_opcache_conf_filename: "{{ __php_opcache_conf_filename }}"
@@ -50,18 +48,6 @@
 
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
-  when:
-    - not php_install_from_source
-    - ansible_os_family == 'RedHat'
-
-- include_tasks: setup-Debian.yml
-  when:
-    - not php_install_from_source
-    - ansible_os_family == 'Debian'
-
-# Install PHP from source when php_install_from_source is true.
-- include_tasks: install-from-source.yml
-  when: php_install_from_source
 
 # Configure PHP.
 - include_tasks: configure.yml
